@@ -25,33 +25,43 @@ public class Hacksy {
             return true;
          }
         for(int i = 0; i < directions.length; i++){
+            int x = 0;
+            int y = 0;
          switch(directions[i]){
            
-            case 0: l.isValid(row - 1, col);
+            case 0: x = 1; y = 0;
+            if(l.isValid(row - 1, col) && isSafeMove(row - 1, col, l)){
            moves.add(1);
            findSafeMove(row - 1, col, l);
            moves.remove(1);
+            }
            break;
 
-            case 1: l.isValid(row, col + 1);
+            case 1: x = 0; y = 1;
+            if (l.isValid(row, col + 1) && isSafeMove(row, col + 1, l)){
             moves.add(2);
             findSafeMove(row, col + 1, l);
-            moves.remove(2);           
+            moves.remove(2); 
+            }          
             break;
 
-            case 2: l.isValid(row + 1, col);
+            case 2: x = -1; y = 0;
+            if(l.isValid(row + 1, col) && isSafeMove(row + 1, col, l)){
             moves.add(0);
             findSafeMove(row + 1, col, l);
             moves.remove(0);
+            }
             break;
 
-            case 3: l.isValid(row, col - 1);
+            case 3: x = 0; y = 1;
+            if (l.isValid(row, col - 1) && isSafeMove(row, col - 1, l)){
             moves.add(3);
             findSafeMove(row, col - 1, l);
             moves.remove(3);
+            }
             break;
 
-            default: i = 0;
+            default:
             }
 
         }
@@ -65,7 +75,7 @@ public class Hacksy {
     }
 
     public void addPosition(int row, int col, Labyrinth l){
-        if(isSafeMove(l)){
+        if(isSafeMove(row, col, l)){
             for (int i = 0; i <= row; i++){
                 for (int j = 0; j <= col; j++){
                     alreadyBeenHere[i][j] = true;
@@ -75,22 +85,21 @@ public class Hacksy {
         }
     }
 
-    public boolean alreadyMoved(Labyrinth l, int row, int col){
-
-                if (alreadyBeenHere[row][col] = false){
-                }
-        
-        
+    public boolean alreadyMoved(int row, int col){
+        if (alreadyBeenHere[row][col] = false){
+        }
         return true;
     }
 
-    public boolean isSafeMove(Labyrinth l){
+    public static boolean isSafeMove(int row, int col, Labyrinth l){
         for (int i = 0; i <= l.rows; i++){
             for (int j = 0; j <= l.cols; j++){
-                l.isStone(i, j);
-                l.
+                if(l.isStone(i, j) && alreadyMoved(i, j)){
+                    
+                }
             }
         }
+        return true;
 
     }
 
