@@ -30,31 +30,31 @@ public class Hacksy {
            moves.add(1);
            findSafeMove(row - 1, col, l);
            moves.remove(1);
-          return false;
+           break;
 
             case 1: l.isValid(row, col + 1);
             moves.add(2);
             findSafeMove(row, col + 1, l);
             moves.remove(2);           
-            return false;
+            break;
 
             case 2: l.isValid(row + 1, col);
             moves.add(0);
             findSafeMove(row + 1, col, l);
             moves.remove(0);
-            return false;
+            break;
 
             case 3: l.isValid(row, col - 1);
             moves.add(3);
             findSafeMove(row, col - 1, l);
             moves.remove(3);
-            return false;
+            break;
 
             default: i = 0;
             }
 
         }
-        return true;
+        return false;
     }
      
 
