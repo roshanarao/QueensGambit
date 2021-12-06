@@ -7,6 +7,7 @@ public class Hacksy {
     static boolean solutionFound = false;
     static ArrayList<Integer> moves = new ArrayList<Integer>();
    static final int[] directions = {0, 1, 2, 3};
+   static final boolean[][] alreadyBeenHere;
     
 
     public Hacksy(Labyrinth l){
@@ -61,6 +62,36 @@ public class Hacksy {
     
     public void reMove(String move){
         moves.remove(moves.size() - 1);
+    }
+
+    public void addPosition(int row, int col, Labyrinth l){
+        if(isSafeMove(l)){
+            for (int i = 0; i <= row; i++){
+                for (int j = 0; j <= col; j++){
+                    alreadyBeenHere[i][j] = true;
+
+                }
+            }
+        }
+    }
+
+    public boolean alreadyMoved(Labyrinth l, int row, int col){
+
+                if (alreadyBeenHere[row][col] = false){
+                }
+        
+        
+        return true;
+    }
+
+    public boolean isSafeMove(Labyrinth l){
+        for (int i = 0; i <= l.rows; i++){
+            for (int j = 0; j <= l.cols; j++){
+                l.isStone(i, j);
+                l.
+            }
+        }
+
     }
 
     
