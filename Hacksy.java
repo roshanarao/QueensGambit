@@ -85,10 +85,8 @@ public class Hacksy {
         }
     }
 
-    public boolean alreadyMoved(int row, int col){
-        if (alreadyBeenHere[row][col] = false){
-        }
-        return true;
+    public static boolean alreadyMoved(int row, int col){
+        return alreadyBeenHere[row][col];
     }
 
     public static boolean isSafeMove(int row, int col, Labyrinth l){
